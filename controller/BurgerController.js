@@ -5,6 +5,12 @@ const getBurgers = async (req, res, next) => {
   res.json(burgers);
 };
 
+const getBurgerById = async (req, res, next) => {
+  const productId = req.params.productId;
+  const burger = await Burger.findById(productId);
+  res.json(burger);
+};
+
 const addBurger = async (req, res, next) => {
   let burger = new Burger();
   burger.name = req.body.name;
@@ -17,4 +23,4 @@ const addBurger = async (req, res, next) => {
   res.json(true);
 };
 
-export { getBurgers, addBurger };
+export { getBurgers, addBurger, getBurgerById };

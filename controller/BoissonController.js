@@ -1,8 +1,14 @@
-import boisson from "../model/Boisson.js";
+import Boisson from "../model/Boisson.js";
 
 const getBoissons = async (req, res, next) => {
-  const boissons = await boisson.find();
+  const boissons = await Boisson.find();
   res.json(boissons);
+};
+
+const getBoissonById = async (req, res, next) => {
+  const productId = req.params.productId;
+  const boisson = await Boisson.findById(productId);
+  res.json(boisson);
 };
 
 const addBoisson = async (req, res, next) => {
@@ -17,4 +23,4 @@ const addBoisson = async (req, res, next) => {
   res.json(true);
 };
 
-export { getBoissons, addBoisson };
+export { getBoissons, addBoisson, getBoissonById };

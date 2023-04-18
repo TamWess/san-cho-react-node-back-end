@@ -5,6 +5,12 @@ const getDesserts = async (req, res, next) => {
   res.json(desserts);
 };
 
+const getDessertById = async (req, res, next) => {
+  const productId = req.params.productId;
+  const dessert = await Dessert.findById(productId);
+  res.json(dessert);
+};
+
 const addDessert = async (req, res, next) => {
   let dessert = new Dessert();
   dessert.name = req.body.name;
@@ -17,4 +23,4 @@ const addDessert = async (req, res, next) => {
   res.json(true);
 };
 
-export { getDesserts, addDessert };
+export { getDesserts, addDessert, getDessertById };

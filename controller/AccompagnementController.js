@@ -5,6 +5,12 @@ const getAccompagnements = async (req, res, next) => {
   res.json(accompagnements);
 };
 
+const getAccompagnementById = async (req, res, next) => {
+  const productId = req.params.productId;
+  const accompagnement = await Accompagnement.findById(productId);
+  res.json(accompagnement);
+};
+
 const addAccompagnement = async (req, res, next) => {
   let accompagnement = new Accompagnement();
   accompagnement.name = req.body.name;
@@ -17,4 +23,4 @@ const addAccompagnement = async (req, res, next) => {
   res.json(true);
 };
 
-export { getAccompagnements, addAccompagnement };
+export { getAccompagnements, addAccompagnement, getAccompagnementById };
