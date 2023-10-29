@@ -7,9 +7,11 @@
 //   dessert: "https://titi.startwin.fr/products/type/dessert",
 // };
 
+const apiBaseUrl = process.env.REACT_APP_BASE_API_URL;
+
 export const URL = {
-  burger: "http://localhost:8080/api/burger/get",
-  accompagnement: "http://localhost:8080/api/accompagnement/get",
-  boisson: "http://localhost:8080/api/boisson/get",
-  dessert: "http://localhost:8080/api/dessert/get",
+  burger: `${apiBaseUrl}/api/burger/get`,
+  accompagnement: `${apiBaseUrl}/api/accompagnement/get`,
+  boisson: `${apiBaseUrl}/api/boisson/get`,
+  dessert: `${apiBaseUrl}/api/dessert/get`,
 };

@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 // ROUTER
 import burgerRoute from "./routes/burger.js";
@@ -9,14 +10,14 @@ import boissonRoute from "./routes/boisson.js";
 import dessertRoute from "./routes/dessert.js";
 // import userApiAsync from "./router-async.js";
 
+dotenv.config();
+
 const app = express();
 
 // Connextion DB
 main().catch((err) => console.log(err));
 async function main() {
-  await mongoose.connect(
-    process.env.MONGODB_URL
-  );
+  await mongoose.connect(process.env.MONGODB_URL);
 }
 
 // PORT
