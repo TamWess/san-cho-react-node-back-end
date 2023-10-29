@@ -15,7 +15,7 @@ const app = express();
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(
-    "mongodb+srv://adil:Cn8mxIDNMs1TfuwR@adil.levsyt6.mongodb.net/products?retryWrites=true&w=majority"
+    process.env.MONGODB_URL
   );
 }
 
